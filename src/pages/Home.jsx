@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Search from "../components/Search.jsx";
+import Search from "../components/InputSearch.jsx";
 import CardsMeals from "../components/CardsMeals.jsx";
 import * as MealService from "../services/meal.service";
 
@@ -18,6 +18,10 @@ export default function Home() {
       );
     }
   }, [search]);
+
+  useEffect(() => {
+    console.log(results)
+  }, [results])
 
   return (
     <main>
