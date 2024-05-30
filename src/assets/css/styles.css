@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #ffffff !important;
+    margin: 1em auto !important;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 1.75em;
+    margin-bottom: 1em !important;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--azul) !important;
+}
+
+main {
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+}
