@@ -10,7 +10,7 @@ function Pagination({ itemsPerPage, totalItems, currentPage, paginate }) {
 
     return (
         <nav>
-            <ul className="pagination justify-content-center">
+            <ul className="pagination justify-content-center my-3">
                 <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
                     <button onClick={() => paginate(currentPage - 1)} className="page-link">
                         Anterior
