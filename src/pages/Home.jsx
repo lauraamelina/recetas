@@ -15,7 +15,7 @@ export default function Home() {
       MealService.getMealsByName(search).then((response) =>
         setResults(response.meals || [])
       );
-    } else {
+    } else if (search === '') {
       MealService.getMealsByFirstLetter("a").then((response) =>
         setResults(response.meals || [])
       );
