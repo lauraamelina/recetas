@@ -35,6 +35,7 @@ export default function Home() {
   return (
     <main>
       <h1>EpicEats</h1>
+      <p className="mt-0 small">Explora un Universo de Sabores</p>
       <Search search={search} setSearch={setSearch} />
       <CardsMeals meals={currentItems} />
       {results.length > itemsPerPage &&

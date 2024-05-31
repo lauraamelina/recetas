@@ -21,8 +21,9 @@
     }
     
     h1 {
-        font-size: 1.75em;
-        margin: .5em 0 !important;
+        font-size: 3.3em;
+        margin: .2em 0 0 0 !important;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.247);
     }
     
     h2 {
