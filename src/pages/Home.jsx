@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Search from "../components/InputSearch.jsx";
-import CardsMeals from "../components/CardsMeals.jsx";
+import Search from "../components/inputs/InputSearch.jsx";
+import CardsMeals from "../components/cards/CardsMeals.jsx";
 import * as MealService from "../services/meal.service";
 
 export default function Home() {
