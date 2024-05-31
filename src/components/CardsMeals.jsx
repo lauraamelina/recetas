@@ -1,13 +1,15 @@
 import React from "react";
+import CardMeal from './CardMeal'
 
 function CardsMeals({ meals }) {
   return (
     <div className="meals">
-      <ul>{meals && meals?.map((meal) =>
-
-        <li>{meal.strMeal}</li>
+      <div className="bg">
+        <p>EpicEats</p>
+      </div>
+      {meals && meals?.map((meal) =>
+        <CardMeal meal={meal} key={meal.idMeal} />
       )}
-      </ul>
     </div>
   );
 }
