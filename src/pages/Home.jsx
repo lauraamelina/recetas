@@ -8,16 +8,16 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 8;
 
   useEffect(() => {
     if (search !== "") {
       MealService.getMealsByName(search).then((response) =>
-        setResults(response.meals)
+        setResults(response.meals || [])
       );
     } else {
       MealService.getMealsByFirstLetter("a").then((response) =>
-        setResults(response.meals)
+        setResults(response.meals || [])
       );
     }
   }, [search]);
@@ -28,7 +28,7 @@ export default function Home() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = results.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = (results || []).slice(indexOfFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -37,12 +37,14 @@ export default function Home() {
       <h1>EpicEats</h1>
       <Search search={search} setSearch={setSearch} />
       <CardsMeals meals={currentItems} />
-      <Pagination
-        itemsPerPage={itemsPerPage}
-        totalItems={results.length}
-        currentPage={currentPage}
-        paginate={paginate}
-      />
+      {results.length > itemsPerPage &&
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          totalItems={results ? results.length : 0}
+          currentPage={currentPage}
+          paginate={paginate}
+        />
+      }
     </main>
   );
 }
