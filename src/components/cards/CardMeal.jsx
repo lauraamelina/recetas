@@ -2,6 +2,7 @@ import React from "react";
 import Button from '@mui/material/Button';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { Link } from "react-router-dom";
 
 export default function CardMeal({ meal }) {
     return (
@@ -22,8 +23,9 @@ export default function CardMeal({ meal }) {
                     </div>
                 </div>
                 <div className="actions">
-
-                    <Button size="small" variant="outlined" color="success" startIcon={<VisibilityIcon />}>Ver más</Button>
+                    <Link to={'/receta/' + meal.idMeal}>
+                        <Button size="small" variant="outlined" color="success" startIcon={<VisibilityIcon />}>Ver más</Button>
+                    </Link>
                     <Button size="small" variant="contained" color="success" startIcon={<BookmarkIcon />} >Guardar</Button>
                 </div>
             </div>
