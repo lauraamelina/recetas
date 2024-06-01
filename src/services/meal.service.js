@@ -10,7 +10,13 @@ async function getMealsByFirstLetter(letter) {
         .then(response => response.json())
 }
 
+async function getMealById(id) {
+    return fetch(URL + 'lookup.php?i=' + id)
+        .then(response => response.json())
+}
+
 export {
     getMealsByName,
-    getMealsByFirstLetter
+    getMealsByFirstLetter,
+    getMealById
 }
