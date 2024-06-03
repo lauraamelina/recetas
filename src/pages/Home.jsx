@@ -3,6 +3,7 @@ import Search from "../components/inputs/InputSearch.jsx";
 import CardsMeals from "../components/cards/CardsMeals.jsx";
 import * as MealService from "../services/meal.service";
 import Pagination from "../components/pagination/Pagination.jsx";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -22,10 +23,6 @@ export default function Home() {
     }
   }, [search]);
 
-  useEffect(() => {
-    console.log(results)
-  }, [results])
-
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = (results || []).slice(indexOfFirstItem, indexOfLastItem);
@@ -36,6 +33,9 @@ export default function Home() {
     <main>
       <h1>EpicEats</h1>
       <p className="mt-0 small">Explora un Universo de Sabores</p>
+      <nav className="menuSaved">
+        <Link to="/recetas/guardados" className="btn btn-success">Guardados</Link>
+      </nav>
       <Search search={search} setSearch={setSearch} />
       <CardsMeals meals={currentItems} />
       {results.length > itemsPerPage &&
