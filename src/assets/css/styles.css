@@ -1,173 +1,297 @@
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-    
-    body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-        background: rgb(2, 0, 36);
-        background: linear-gradient(187deg, rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(26, 48, 52, 1) 100%);
-        background-size: cover;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        color: #eee !important;
-        user-select: none;
-    }
-    
-    img {
-        max-width: 100%;
-    }
-    
-    h1 {
-        font-size: 3.3em;
-        margin: .2em 0 0 0 !important;
-        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.247);
-    }
-    
-    h2 {
-        font-size: 1.5em;
-    }
-    
-    li {
-        list-style: none;
-    }
-    
-    ul {
-        padding: 0;
-    }
-    
-    a {
-        text-decoration: none;
-        color: var(--azul) !important;
-    }
-    
-    main {
-        text-align: center;
-        max-width: 90%;
-        margin: 0 auto;
-    }
-    /* Estilos CardsMeal */
-    
-    .meals {
-        display: flex;
-        justify-content: space-between !important;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-    
-    .meals .meal {
-        user-select: none;
-        max-width: 300px;
-        margin: 1rem auto;
-        border: 1px solid #ffffff22;
-        background-color: #282c34;
-        background: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(17, 0, 32, .5) 100%);
-        box-shadow: 0 7px 20px 5px #00000088;
-        border-radius: .7rem;
-        backdrop-filter: blur(7px);
-        -webkit-backdrop-filter: blur(2px);
-        overflow: hidden;
-        transition: .5s all;
-        position: relative;
-    }
-    
-    .meals .meal::before {
-        position: fixed;
-        content: "";
-        box-shadow: 0 0 100px 40px #ffffff08;
-        top: -10%;
-        left: -100%;
-        transform: rotate(-45deg);
-        height: 60rem;
-        transition: .7s all;
-    }
-    
-    .meals .meal:hover {
-        border: 1px solid #ffffff44;
-        box-shadow: 0 7px 50px 10px #000000aa;
-        transform: scale(1.015);
-        filter: brightness(1.3);
-    }
-    
-    .meals .meal:hover::before {
-        filter: brightness(.2);
-        top: -100%;
-        left: 200%;
-    }
-    
-    .meals .meal .main {
-        display: flex;
-        flex-direction: column;
-        width: 95%;
-        margin: 0 auto;
-        padding: 1rem;
-    }
-    
-    .meals .meal .main .image {
-        border-radius: .5rem;
-        max-width: 100% !important;
-        height: 250px;
-        object-fit: cover;
-    }
-    
-    .meals .meal .main .content {
-        margin: .5rem 0;
-        color: #a89ec9;
-        position: relative;
-        z-index: 1 !important;
-    }
-    
-    .meals .meal .main .actions {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-        z-index: 1 !important;
-    }
-    
-    .meals .meal .main .title {
-        font-weight: bold;
-        font-size: 1em;
-    }
-    /* FONDO MEALS */
-    
-    .meals .bg {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    
-    .meals>.bg>p {
-        font-size: 20rem;
-        filter: opacity(0.5);
-        position: relative;
-        z-index: -1;
-    }
-    /* SEARCH INPUT */
-    
-    .search-input {
-        position: relative;
-        z-index: 2;
-    }
-    /* PAGINATION */
-    
-    .pagination .page-item .page-link {
-        color: #fff;
-        background-color: #333;
-        border: 1px solid #fff;
-    }
-    
-    .pagination .page-item.active .page-link {
-        color: #000;
-        background-color: #fff;
-        border: 1px solid #000;
-    }
-    
-    .pagination .page-item .page-link:hover {
-        color: #fff;
-        background-color: #666;
-        border: 1px solid #fff;
-    }
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	background: rgb(2, 0, 36);
+	background: linear-gradient(
+		187deg,
+		rgba(2, 0, 36, 1) 0%,
+		rgba(0, 0, 0, 1) 35%,
+		rgba(26, 48, 52, 1) 100%
+	);
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	color: #eee !important;
+	user-select: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+h1 {
+	font-size: 3.3em;
+	margin: 0.2em 0 0 0 !important;
+	text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.247);
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+li {
+	list-style: none;
+}
+
+ul {
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: var(--azul) !important;
+}
+
+main {
+	text-align: center;
+	max-width: 90%;
+	margin: 0 auto;
+}
+/* Estilos CardsMeal */
+
+.meals {
+	display: flex;
+	justify-content: space-between !important;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.meals .meal {
+	user-select: none;
+	max-width: 300px;
+	margin: 1rem auto;
+	border: 1px solid #ffffff22;
+	background-color: #282c34;
+	background: linear-gradient(
+		0deg,
+		rgba(40, 44, 52, 1) 0%,
+		rgba(17, 0, 32, 0.5) 100%
+	);
+	box-shadow: 0 7px 20px 5px #00000088;
+	border-radius: 0.7rem;
+	backdrop-filter: blur(7px);
+	-webkit-backdrop-filter: blur(2px);
+	overflow: hidden;
+	transition: 0.5s all;
+	position: relative;
+}
+
+.meals .meal::before {
+	position: fixed;
+	content: "";
+	box-shadow: 0 0 100px 40px #ffffff08;
+	top: -10%;
+	left: -100%;
+	transform: rotate(-45deg);
+	height: 60rem;
+	transition: 0.7s all;
+}
+
+.meals .meal:hover {
+	border: 1px solid #ffffff44;
+	box-shadow: 0 7px 50px 10px #000000aa;
+	transform: scale(1.015);
+	filter: brightness(1.3);
+}
+
+.meals .meal:hover::before {
+	filter: brightness(0.2);
+	top: -100%;
+	left: 200%;
+}
+
+.meals .meal .main {
+	display: flex;
+	flex-direction: column;
+	width: 95%;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+.meals .meal .main .image {
+	border-radius: 0.5rem;
+	max-width: 100% !important;
+	height: 250px;
+	object-fit: cover;
+}
+
+.meals .meal .main .content {
+	margin: 0.5rem 0;
+	color: #a89ec9;
+	position: relative;
+	z-index: 1 !important;
+}
+
+.meals .meal .main .actions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	z-index: 1 !important;
+}
+
+.meals .meal .main .title {
+	font-weight: bold;
+	font-size: 1em;
+}
+/* FONDO MEALS */
+
+.meals .bg {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.meals > .bg > p {
+	font-size: 20rem;
+	filter: opacity(0.5);
+	position: relative;
+	z-index: -1;
+}
+/* SEARCH INPUT */
+
+.search-input {
+	position: relative;
+	z-index: 2;
+}
+/* PAGINATION */
+
+.pagination .page-item .page-link {
+	color: #fff;
+	background-color: #333;
+	border: 1px solid #fff;
+}
+
+.pagination .page-item.active .page-link {
+	color: #000;
+	background-color: #fff;
+	border: 1px solid #000;
+}
+
+.pagination .page-item .page-link:hover {
+	color: #fff;
+	background-color: #666;
+	border: 1px solid #fff;
+}
+
+/* MEALS BY ID */
+
+.mealById {
+	border: 1px solid #ffffff22;
+	background-color: #282c34;
+	background: linear-gradient(
+		0deg,
+		rgba(40, 44, 52, 1) 0%,
+		rgba(17, 0, 32, 0.5) 100%
+	);
+	box-shadow: 0 7px 20px 5px #00000088;
+	border-radius: 0.7rem;
+	backdrop-filter: blur(7px);
+	-webkit-backdrop-filter: blur(2px);
+	overflow: hidden;
+	transition: 0.5s all;
+	position: relative;
+	margin: 2rem 0;
+}
+
+.mealContent {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+
+.mealById h2 {
+	margin-top: 0.5em;
+}
+
+.mealById .mealContent .info {
+	order: 2;
+}
+
+.mealById .mealContent .imagen {
+	order: 1;
+	height: 100% !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mealById .mealContent .imagen img {
+	border-radius: 0.7rem;
+	box-shadow: 0 7px 20px 5px #00000088;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.mealById .mealContent .info .title {
+	font-size: 2em;
+	margin: 0.2em 0 0 0 !important;
+	text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.247);
+	text-align: center !important;
+}
+
+.mealById .mealContent .info .badge {
+	text-align: center;
+	margin: 1em 0.5em 1.9em 0.5em;
+}
+
+.mealById .mealContent .info h3 {
+	font-size: 1.3em;
+}
+
+.mealById .mealContent .info p {
+	text-align: left;
+	font-size: 0.8em;
+}
+
+.mealById .mealContent .info li {
+	font-size: 0.9em;
+	text-align: left !important;
+}
+
+.mealById .mealContent .ingredientes,
+.mealById .mealContent .instrucciones {
+	height: 250px;
+	overflow-y: auto;
+}
+
+/* SCROLL DE INGREDIENTES && INSTRUCCIONES*/
+
+.mealById .mealContent .ingredientes::-webkit-scrollbar,
+.mealById .mealContent .instrucciones::-webkit-scrollbar {
+	width: 12px;
+}
+
+.mealById .mealContent .ingredientes::-webkit-scrollbar-track,
+.mealById .mealContent .instrucciones::-webkit-scrollbar-track {
+	background: #f1f1f1 !important;
+	border-radius: 10px !important;
+}
+
+.mealById .mealContent .ingredientes::-webkit-scrollbar-thumb,
+.mealById .mealContent .instrucciones::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 10px;
+}
+
+.mealById .mealContent .ingredientes::-webkit-scrollbar-thumb:hover,
+.mealById .mealContent .instrucciones::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+.mealById .mealContent .ingredientes,
+.mealById .mealContent .instrucciones {
+	scrollbar-width: thin;
+	scrollbar-color: #888 #f1f1f1;
+}
