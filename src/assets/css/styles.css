@@ -323,3 +323,12 @@ main {
 		max-width: 100% !important;
 	}
 }
+
+/* MENÚ GUARDADOS */
+
+.menuSaved a {
+	position: fixed;
+	top: 20px;
+	left: 10px;
+	z-index: 999;
+}
