@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import { deleteMeal, saveMeal, isMealSaved } from '../services/recipeStorageService.js'
 
 function GradientCircularProgress() {
   return (
@@ -27,18 +30,36 @@ export default function PageMealById() {
   const [meal, setMeal] = useState(null);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
+  const [isRecipeSaved, setIsRecipeSaved] = useState(false);
 
   useEffect(() => {
     setLoading(true);
     MealService.getMealById(id).then((response) => {
       if (response && response.meals && response?.meals?.length > 0) {
         setMeal(response.meals[0]);
+        setIsRecipeSaved(isMealSaved(response.meals[0]));
       } else {
         setMeal(null);
       }
       setLoading(false);
     });
   }, [id]);
+
+  const handleSaveRecipe = () => {
+    if (meal) {
+      saveMeal(meal);
+      setIsRecipeSaved(true);
+      alert("Receta guardada correctamente!");
+    }
+  };
+
+  const handleDeleteRecipe = () => {
+    if (meal) {
+      deleteMeal(meal);
+      setIsRecipeSaved(false);
+      alert("Receta eliminada correctamente!");
+    }
+  };
 
   return (
     <main>
@@ -53,9 +74,15 @@ export default function PageMealById() {
       ) : (
         !loading && <p className="my-5 fs-2">No se encontró la receta</p>
       )}
+
       <Link to={'/'}>
-        <Button size="small" variant="contained" color="success">Volver</Button>
+        <Button className="me-2 mb-3" size="small" variant="outlined" color="success">Volver</Button>
       </Link>
+      {meal && isRecipeSaved ? (
+        <Button className="mb-3" size="small" variant="contained" color="success" startIcon={<BookmarkIcon />} onClick={handleDeleteRecipe}>Guardado</Button>
+      ) : (
+        <Button className="mb-3" size="small" variant="contained" color="success" startIcon={< BookmarkBorderIcon />} onClick={handleSaveRecipe}>Guardar</Button>
+      )}
     </main>
   );
 }
