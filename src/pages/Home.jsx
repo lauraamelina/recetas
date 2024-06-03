@@ -4,6 +4,7 @@ import CardsMeals from "../components/cards/CardsMeals.jsx";
 import * as MealService from "../services/meal.service";
 import Pagination from "../components/pagination/Pagination.jsx";
 import { Link } from "react-router-dom";
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -34,7 +35,10 @@ export default function Home() {
       <h1>EpicEats</h1>
       <p className="mt-0 small">Explora un Universo de Sabores</p>
       <nav className="menuSaved">
-        <Link to="/recetas/guardados" className="btn btn-success">Guardados</Link>
+        <Link to="/recetas/guardados" className="btn btn-success">
+          <span className="visually-hidden">Guardados</span>
+          <BookmarkIcon />
+        </Link>
       </nav>
       <Search search={search} setSearch={setSearch} />
       <CardsMeals meals={currentItems} />
