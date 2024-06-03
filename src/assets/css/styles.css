@@ -317,4 +317,9 @@ main {
 	.meals > .bg > p {
 		font-size: 10rem;
 	}
+
+	.meals .meal {
+		width: 100% !important;
+		max-width: 100% !important;
+	}
 }
