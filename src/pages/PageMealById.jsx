@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import * as MealService from "../services/meal.service.js";
 import { useParams } from "react-router-dom";
 import CardMealById from '../components/cards/CardMealById.jsx'
+import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export default function PageMealById() {
   const [meal, setMeal] = useState(null);
@@ -27,8 +29,12 @@ export default function PageMealById() {
       {meal ? (
         <CardMealById meal={meal} />
       ) : (
-        <p className="my-5 fs-2">No se encontraron recetas con ese ID</p>
+        <p className="my-5 fs-2">No se encontró la receta</p>
       )}
+
+      <Link to={'/'}>
+        <Button size="small" variant="contained" color="success">Volver</Button>
+      </Link>
 
     </main>
   );
