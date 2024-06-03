@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from '@mui/material/Button';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import { Link } from "react-router-dom";
+import { isMealSaved, saveMeal, deleteMeal } from '../../services/recipeStorageService';
 
-export default function CardMeal({ meal }) {
+export default function CardMeal({ meal, updateSavedMeals }) {
+    const [isSaved, setIsSaved] = useState(isMealSaved(meal));
+
+    const handleSaveRecipe = () => {
+        saveMeal(meal);
+        setIsSaved(true);
+        alert("Receta guardada correctamente!");
+    };
+
+    const handleDeleteRecipe = () => {
+        deleteMeal(meal);
+        setIsSaved(false);
+        alert("Receta eliminada correctamente!");
+    };
+
     return (
-        <div className="meal">
+        <div className="meal" onClick={updateSavedMeals}>
             <div className="main">
                 <img
                     src={meal.strMealThumb}
@@ -26,7 +42,11 @@ export default function CardMeal({ meal }) {
                     <Link to={'/receta/' + meal.idMeal}>
                         <Button size="small" variant="outlined" color="success" startIcon={<VisibilityIcon />}>Ver más</Button>
                     </Link>
-                    <Button size="small" variant="contained" color="success" startIcon={<BookmarkIcon />} >Guardar</Button>
+                    {isSaved ? (
+                        <Button size="small" variant="contained" color="success" startIcon={<BookmarkIcon />} onClick={handleDeleteRecipe}>Guardado</Button>
+                    ) : (
+                        <Button size="small" variant="contained" color="success" startIcon={< BookmarkBorderIcon />} onClick={handleSaveRecipe}>Guardar</Button>
+                    )}
                 </div>
             </div>
         </div>
