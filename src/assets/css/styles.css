@@ -1,7 +1,7 @@
-* {
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
 }
 
 body {
@@ -294,4 +294,27 @@ main {
 .mealById .mealContent .instrucciones {
 	scrollbar-width: thin;
 	scrollbar-color: #888 #f1f1f1;
+}
+
+/*  MOBILE */
+
+@media screen and (max-width: 776px) {
+	.mealById .mealContent .imagen {
+		order: 4;
+		height: 300px !important;
+	}
+
+	.mealById .mealContent .ingredientes,
+	.mealById .mealContent .instrucciones {
+		height: fit-content;
+	}
+
+	.mealById .mealContent .info li,
+	.mealById .mealContent .info p {
+		text-align: center !important;
+	}
+
+	.meals > .bg > p {
+		font-size: 10rem;
+	}
 }
